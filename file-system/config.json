@@ -1,0 +1,33 @@
+{
+    "addresses": {
+        "ethereum": "0xd687847559A3bEc088251f3cC33E7BAf31e4aB48",
+        "goerli": "0x29e3F4B932c1E0B989E3B6AbCf56Ae342c5AD65a",
+        "polygon": "0x117542b736cB5314a59453081b66208863CC1Acc",
+        "mumbai": "0x513bd3bc623c42a807fBD162a58682941A12935F",
+        "arbitrum": "0x4c3896dd0b55B3B62D560620B1D8bF99643fFCCE",
+        "arbitrum-goerli": "0x11Eb3C36fa9b2B0F4Ee67BCe1016960588A814ba",
+        "optimism": "0x21c3a69EaD9b81863B83757ff2645803fF7c7690",
+        "optimism-goerli": "0x20475183625aE0eD5Dcd2553a660B06FF52af8Bd",
+        "base": "0x799d1CC242637847756f0400d1F83FCF94Cb051e",
+        "base-goerli": "0xB644D70A52b4e555815EF3Ec76488dbdA9DF972D",
+        "zora": "0xB627f0469683f68aC78E1deD4eFA8545aa4c4DE3",
+        "zora-goerli": "0xAFfC7C9BfB48FFD2a580e1a0d36f8cc7D45Dcb58"
+    },
+    "rpc": {
+        "ethereum": "https://ethereum.publicnode.com",
+        "goerli": "https://ethereum-goerli.publicnode.com",
+        "polygon": "https://polygon-rpc.com",
+        "mumbai": "https://rpc-mumbai.maticvigil.com",
+        "arbitrum": "https://arb1.arbitrum.io/rpc",
+        "arbitrum-goerli": "https://goerli-rollup.arbitrum.io/rpc",
+        "optimism": "https://mainnet.optimism.io",
+        "optimism-goerli": "https://goerli.optimism.io",
+        "base": "https://mainnet.base.org",
+        "base-goerli": "https://goerli.base.org",
+        "zora": "https://rpc.zora.energy",
+        "zora-goerli": "https://testnet.rpc.zora.energy"
+    },
+    "accounts": {
+        "default": ""
+    }
+}
