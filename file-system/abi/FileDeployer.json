@@ -1,0 +1,44 @@
+{
+    "_format": "hh-sol-artifact-1",
+    "contractName": "FileDeployer",
+    "abi": [
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": true,
+            "internalType": "bytes32",
+            "name": "name",
+            "type": "bytes32"
+          },
+          {
+            "indexed": true,
+            "internalType": "address",
+            "name": "contentAddress",
+            "type": "address"
+          }
+        ],
+        "name": "DeployedContent",
+        "type": "event"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "bytes32[]",
+            "name": "names",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "string[]",
+            "name": "contents",
+            "type": "string[]"
+          }
+        ],
+        "name": "deploy",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      }
+    ]
+}
+  

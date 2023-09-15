@@ -1,0 +1,21 @@
+{
+  "name": "generative-onchain-tools",
+  "version": "0.1.0",
+  "description": "Onchain tools for code-based generative art on Highlight",
+  "main": "index.js",
+  "repository": "git@github.com:highlightxyz/generative-onchain-tools.git",
+  "author": "ishan@highlight.xyz",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "node file-system/src/deploy.js",
+    "cost": "node file-system/src/checkCost.js",
+    "add-file": "node file-system/src/addFile.js",
+    "remove-file": "node file-system/src/removeFile.js"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "command-line-args": "^5.2.1",
+    "ethers": "^6.7.1",
+    "split-file": "^2.3.0"
+  }
+}
