@@ -45,7 +45,7 @@ As per [EIP-170](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-170.md), 
 
 The FileDeployer contract has a single `deploy` function which takes in an array of names, and an array of file contents. Typically, these names would be the names of the chunks of each file.
 
-The deploy tool in this repository currently chunks files into 20kb blocks, and deploys a maximum of 4 contracts per transaction. Although on most chains this config can be bumped up, this allows users of chains with a 20M block compute limit to deploy files through the deploy tool. Users deploying files that are greater than 20kb but less than 24kb may want to update `file-system/src/constants.js` to bump the config. A maximum configuration would probably consist of 24kb chunks with 5 contracts being deployed per transaction.
+The deploy tool in this repository currently chunks files into 20kb blocks, and deploys a maximum of 4 contracts per transaction. Deploying files that are larger than 80kb will submit multiple transactions. Although on most chains this config can be bumped up, this allows users of chains with a 20M block compute limit to deploy files through the deploy tool. Users deploying files that are greater than 20kb but less than 24kb may want to update `file-system/src/constants.js` to bump the config. A maximum configuration would probably consist of 24kb chunks with 5 contracts being deployed per transaction.
 
 Once deployed as bytecode, an uploaded chunk can be read by converting the bytes back to human-readable text. Files split up into chunks can be read by appending the text of each deployed contract together. The file system on each Generative Series contract handles the conversion and concatenation of bytecode into a file's full contents. 
 
