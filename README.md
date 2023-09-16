@@ -193,3 +193,9 @@ Example: yarn remove-file --name p5.min.js --network ethereum --contract 0xc279f
 *TBD*
 
 This section will contain the addresses of approved files on each chain, eg. p5.min.js.
+
+___
+
+## Disclaimer
+
+The Highlight File System client and related information is offered on an as-is basis. Sea Ranch Labs, Inc., dba Highlight, gives no warranties regarding its use and disclaims all liability for damages resulting from its use to the fullest extent possible. Usage is fully governed by Highlight’s [terms of service](https://highlight.xyz/terms-of-service) and [privacy policy](https://highlight.xyz/privacy-policy), available at the links provided. Please remember that blockchain transactions are immutable, and only proceed if you have requisite technical understanding.
