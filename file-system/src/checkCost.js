@@ -14,7 +14,7 @@ const ethers = require("ethers");
 const config = require("../config.json");
  
 const { FILE_NAME_FORMAT  } = require("./constants.js");
-const APPROX_DEPLOY_COMPUTE_PER_BYTE = BigInt(190);
+const APPROX_DEPLOY_COMPUTE_PER_BYTE = BigInt(250);
  
 const checkCost = async (fileName, network, useLegacyGas) => {
     if (network === "mainnet") network = "ethereum";
@@ -42,7 +42,7 @@ const checkCost = async (fileName, network, useLegacyGas) => {
 const args = commandLineArgs([
     { name: 'name', type: String },
     { name: 'network', alias: 'n', type: String },
-    { name: 'legacy', alias: 'l', type: Boolean, defaultValue: true }
+    { name: 'legacy', alias: 'l', type: Boolean, defaultValue: false }
 ])
 
 checkCost(args.name, args.network, args.legacy)
