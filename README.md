@@ -47,6 +47,7 @@ Once deployed as bytecode, an uploaded chunk can be read by converting the bytes
 
 ---
 
+![write](https://github.com/highlightxyz/generative-onchain-tools/assets/55633921/dad16631-a603-42fc-9f45-b90c6a819600)
 
 ___
 
@@ -72,7 +73,7 @@ This repository has tools to add and remove files from a file system. To read a 
 
 ---
 
-
+![read](https://github.com/highlightxyz/generative-onchain-tools/assets/55633921/002c21e7-3c92-43e5-b830-89a412360c51)
 
 ---
 
