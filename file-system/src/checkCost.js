@@ -40,12 +40,12 @@ const checkCost = async (fileName, network, useLegacyGas) => {
 }
 
 const args = commandLineArgs([
-    { name: 'file', alias: 'f', type: String },
+    { name: 'name', type: String },
     { name: 'network', alias: 'n', type: String },
     { name: 'legacy', alias: 'l', type: Boolean, defaultValue: true }
 ])
 
-checkCost(args.file, args.network, args.legacy)
+checkCost(args.name, args.network, args.legacy)
     .then(() => process.exit(0))
     .catch(error => {
     console.error(error);

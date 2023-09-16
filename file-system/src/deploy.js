@@ -41,7 +41,6 @@ const deploy = async (fileName, network, accountName) => {
         throw new Error(`Failed to connect to ${network} using rpc ${config.rpc[network]}`);
     }
 
-    const name = fileName.slice(0, fileName.lastIndexOf("."))
     let split = false;
 
     try {
@@ -50,8 +49,8 @@ const deploy = async (fileName, network, accountName) => {
         console.log(`${fileName}, size: ${stats.size} bytes found`);
         if (stats.size > MAX_FILE_CHUNK_SIZE_BYTES) {
             split = true;
-            console.log(`Size is over ${MAX_FILE_CHUNK_SIZE_BYTES} bytes, chunks will be placed in files/${name}-split directory`)
-            if (fs.existsSync(resolve(__dirname, `../files/${name}-split`))) console.log(`Directory exists at files/${name}-split, chunks will be reused`)
+            console.log(`Size is over ${MAX_FILE_CHUNK_SIZE_BYTES} bytes, chunks will be placed in files/${fileName}-split directory`)
+            if (fs.existsSync(resolve(__dirname, `../files/${fileName}-split`))) console.log(`Directory exists at files/${fileName}-split, chunks will be reused`)
         }
         console.log("");
     } catch (error) {
@@ -60,7 +59,7 @@ const deploy = async (fileName, network, accountName) => {
     }
 
     let paths = [filePath];
-    const splitPath = resolve(__dirname, `../files/${name}-split`);
+    const splitPath = resolve(__dirname, `../files/${fileName}-split`);
     if (split && !fs.existsSync(splitPath)) {
         await fs.promises.mkdir(splitPath);
 
@@ -85,7 +84,7 @@ const deploy = async (fileName, network, accountName) => {
             return await fs.promises.readFile(uploadChunkPath, "utf8");
         }))
         const names = uploadChunkPaths.map((uploadChunkPath, innerIndex) => {
-            return `${name}-${(index * MAX_CHUNKS_IN_TX) + innerIndex + 1}`
+            return `${fileName}-${(index * MAX_CHUNKS_IN_TX) + innerIndex + 1}`
         })
         
         return { names, fileContents, txIndex: index + 1, uploadChunkPaths }
@@ -124,7 +123,7 @@ const deploy = async (fileName, network, accountName) => {
     console.log(addresses)
     console.log("");
 
-    const deploymentPath = resolve(__dirname, `../deployments/${name}.json`);
+    const deploymentPath = resolve(__dirname, `../deployments/${fileName}.json`);
     let deploymentFileContents = {};
     if (fs.existsSync(deploymentPath)) {
         deploymentFileContents = JSON.parse(await fs.promises.readFile(deploymentPath, "utf8"))
@@ -132,16 +131,16 @@ const deploy = async (fileName, network, accountName) => {
     deploymentFileContents[network] = addresses;
     await fs.promises.writeFile(deploymentPath, JSON.stringify(deploymentFileContents, null, 4));
 
-    console.log(`Process complete! Run the following to add this file to your generative series contract's file system:\nyarn add-file --name ${name} --network ${network} --contract <contract address>`);
+    console.log(`Process complete! Run the following to add this file to your generative series contract's file system:\nyarn add-file --name ${fileName} --network ${network} --contract <contract address>`);
 }
 
 const args = commandLineArgs([
-    { name: 'file', alias: 'f', type: String },
+    { name: 'name', type: String },
     { name: 'network', alias: 'n', type: String },
     { name: 'account', alias: 'a', type: String, defaultValue: "default" }
 ])
 
-deploy(args.file, args.network, args.account)
+deploy(args.name, args.network, args.account)
     .then(() => process.exit(0))
     .catch(error => {
     console.error(error);
