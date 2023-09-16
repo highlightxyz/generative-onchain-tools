@@ -45,8 +45,6 @@ The deploy tool in this repository currently chunks files into 20kb blocks, and 
 
 Once deployed as bytecode, an uploaded chunk can be read by converting the bytes back to human-readable text. Files split up into chunks can be read by appending the text of each deployed contract together. The file system on each Generative Series contract handles the conversion and concatenation of bytecode into a file's full contents. 
 
----
-
 ![write](https://github.com/highlightxyz/generative-onchain-tools/assets/55633921/dad16631-a603-42fc-9f45-b90c6a819600)
 
 ___
@@ -70,8 +68,6 @@ The file system has 5 functions:
 fileStorageAddresses are the addresses that hold the bytecode making up the contents of a file. Concatenating the human-readable version of the bytecode at these addresses returns the full file contents, which is what `fileContents` does.
 
 This repository has tools to add and remove files from a file system. To read a contract's file system, it is recommended to access the contract's interface on a block explorer, like Etherscan. 
-
----
 
 ![read](https://github.com/highlightxyz/generative-onchain-tools/assets/55633921/002c21e7-3c92-43e5-b830-89a412360c51)
 
