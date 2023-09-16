@@ -131,14 +131,14 @@ The following commands are all meant to be run in the root of this repository.
 Before deploying a file, you can check how much it will cost to deploy a file. The cost is calculated using the network's current gas fee. Add a file to `file-system/files/` to proceed. 
 
 ```
-Format: yarn cost --name <file name> --network <network name> --legacy <optional, defaults to true>
+Format: yarn cost --name <file name> --network <network name> --legacy <optional, defaults to false>
 ```
 
 ```
 Example: yarn cost --name p5.min.js --network ethereum
 ```
 
-If legacy is set to false, the cost estimator will use the `maxFeePerGas` value to estimate the cost, instead of `gasPrice`. It's recommended to keep legacy as true, since most rpcs are backwards compatible when returning the legacy `gasPrice`. 
+If legacy is set to false, the cost estimator will use the `maxFeePerGas` value to estimate the cost, instead of `gasPrice`. It's recommended to keep legacy as false.
 
 ---
 
