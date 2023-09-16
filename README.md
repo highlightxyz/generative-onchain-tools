@@ -6,7 +6,15 @@ Generative art collections are Highlight are sets of NFTs that are rendered by a
 
 # Generative Series File System
 
-The File System client is a CLI tool to upload generative art projects on-chain, and manage your on-chain file systems. Each Generative Series contracts hosts its own FileSystem to enable flexibility. 
+- [File deployment context](#file-deployment)
+- [File management context](#file-management)
+- [Setup](#setup)
+- [Check how much it costs to deploy a file](#check-a-files-deploy-cost)
+- [Deploy a file](#deploy-a-file)
+- [Add a file to a file system](#add-a-file)
+- [Remove a file from a file system](#remove-a-file)
+
+The File System client is a CLI tool to upload generative art projects on-chain, and manage your on-chain file systems. Each Generative Series contract hosts its own FileSystem to enable flexibility. 
 
 Writing a new file on-chain consists of two major steps: deploying the file, and adding it to a contract's file system. Since this process is modular, creators can easily add files that are already deployed (to a given chain) to their contract's file system, without having to deploy a new copy themselves. For example, Highlight has deployed the minified version of [p5.js 1.6.0](https://github.com/processing/p5.js/releases/tag/v1.6.0) to Base (mainnet) and Goerli (testnet) already. The tools in this repository make both steps extremely easy, and are flexible to customization.
 
