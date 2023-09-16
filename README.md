@@ -1,6 +1,4 @@
-# generative-onchain-tools
-
-Generative art collections are Highlight are sets of NFTs that are rendered by an artist's code at the time they're minted. 
+Generative art collections on Highlight are sets of NFTs that are rendered by an artist's code at the time they're minted. 
 
 - [How to make generative art on Highlight](https://github.com/highlightxyz/generative-art/tree/main)
 
@@ -14,9 +12,9 @@ Generative art collections are Highlight are sets of NFTs that are rendered by a
 - [Add a file to a file system](#add-a-file)
 - [Remove a file from a file system](#remove-a-file)
 
-The File System client is a CLI tool to upload generative art projects on-chain, and manage your on-chain file systems. Each Generative Series contract hosts its own FileSystem to enable flexibility. 
+The Highlight File System client is a CLI tool to upload generative art projects onchain, and manage your onchain file systems. Each Generative Series contract hosts its own FileSystem to enable flexibility. 
 
-Writing a new file on-chain consists of two major steps: deploying the file, and adding it to a contract's file system. Since this process is modular, creators can easily add files that are already deployed (to a given chain) to their contract's file system, without having to deploy a new copy themselves. For example, Highlight has deployed the minified version of [p5.js 1.6.0](https://github.com/processing/p5.js/releases/tag/v1.6.0) to Base (mainnet) and Goerli (testnet) already. The tools in this repository make both steps extremely easy, and are flexible to customization.
+Writing a new file onchain consists of two major steps: deploying the file, and adding it to a contract's file system. Since this process is modular, creators can easily add files that are already deployed to a given chain to their contract's file system, without having to deploy a new copy themselves. For example, Highlight has already deployed the minified version of [p5.js 1.6.0](https://github.com/processing/p5.js/releases/tag/v1.6.0) to Base's Mainnet and its Goerli testnet. The tools in this repository make both steps extremely easy, and are easy to customize.
 
 ---
 
@@ -37,17 +35,19 @@ All 12 networks that are supported on [Highlight](https://highlight.xyz/) are su
 
 ## File deployment
 
-When you deploy a Generative Series collection on Highlight, your contract has a file system built in that will let you, the creator, put your project on-chain. The most gas-efficient way of storing files on-chain (on the storage trie) is to deploy file contents as the raw bytecode of new smart contracts. Highlight has deployed a light-weight factory called the "FileDeployer", which uses parts of [SSTORE2](https://github.com/transmissions11/solmate/blob/main/src/utils/SSTORE2.sol) by [Solmate](https://github.com/transmissions11/solmate/tree/main) to deploy text as contract bytecode. 
+When you deploy a Generative Series collection on Highlight, your project is uploaded to Arweave by default. However, your contract has a file system built in that will let you, as the contract creator and owner, put your project onchain. The most gas-efficient way of storing files onchain (on the storage trie) is to deploy file contents as the raw bytecode of new smart contracts. Highlight has deployed a light-weight factory called the "FileDeployer", which uses parts of [SSTORE2](https://github.com/transmissions11/solmate/blob/main/src/utils/SSTORE2.sol) by [Solmate](https://github.com/transmissions11/solmate/tree/main) to deploy text as contract bytecode. 
 
 - [File Deployer](https://github.com/highlightxyz/hl-evm-contracts/tree/main/contracts/erc721/onchain/FileDeployer.sol)
 
 As per [EIP-170](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-170.md), smart contracts on Ethereum have a 24kb size limit. Therefore, files over 24kb need to be partitioned into chunks of 24kb and uploaded. Additionally, deploying a 24kb smart contract costs about 5M compute units. While different chains place different limits on the total amount of compute units a single block can consume, Ethereum's (and most L2's) limit is 30M. 
 
-The deploy tool in this repository currently chunks files into 20kb blocks, and deploys a maximum of 4 contracts per transaction. Deploying files that are larger than 80kb will submit multiple transactions. Although on most chains this config can be bumped up, this allows users of chains with a 20M block compute limit to deploy files through the deploy tool. Users deploying files that are greater than 20kb but less than 24kb may want to update `file-system/src/constants.js` to bump the config. A maximum configuration would probably consist of 24kb chunks with 5 contracts being deployed per transaction.
+The deploy tool in this repository currently chunks files into 20kb blocks, and deploys a maximum of 4 contracts per transaction. Deploying files that are larger than 80kb will submit multiple transactions. Although on most chains this config can be bumped up, this allows users of chains with a 20M block compute limit to deploy files through the deploy tool. Users deploying files that are greater than 20kb but less than 24kb may want to update `file-system/src/constants.js` to bump the config. A maximum configuration would likely consist of 24kb chunks with 5 contracts being deployed per transaction.
 
 Once deployed as bytecode, an uploaded chunk can be read by converting the bytes back to human-readable text. Files split up into chunks can be read by appending the text of each deployed contract together. The file system on each Generative Series contract handles the conversion and concatenation of bytecode into a file's full contents. 
 
----
+![write](https://github.com/highlightxyz/generative-onchain-tools/assets/55633921/dad16631-a603-42fc-9f45-b90c6a819600)
+
+___
 
 ## File management
 
@@ -69,11 +69,13 @@ fileStorageAddresses are the addresses that hold the bytecode making up the cont
 
 This repository has tools to add and remove files from a file system. To read a contract's file system, it is recommended to access the contract's interface on a block explorer, like Etherscan. 
 
+![read](https://github.com/highlightxyz/generative-onchain-tools/assets/55633921/002c21e7-3c92-43e5-b830-89a412360c51)
+
 ---
 
 ## Usage
 
-There are 4 functions supported here: 
+There are 4 commands supported by the CLI: 
 
 - Deploying a file
 - Checking the cost to deploy a file
@@ -140,7 +142,7 @@ If legacy is set to false, the cost estimator will use the `maxFeePerGas` value 
 
 ### Deploy a file
 
-To deploy a file, add a file to `file-system/files/` to proceed. The tool uses the name of the file to name the chunks that are deployed on-chain (these names are emitted in events, and are of the format `sample-1`, `sample-2`, etc.) and to name the deployment file that will be generated in `file-system/deployments/`.For example, deploying `sample.js` will create or update `file-system/deployments/sample.js.json`. Every file in `file-system/deployments` stores file storage addresses by chain, so that you can deploy the same file to multiple chains without overwriting anything. However, deploying a file by the same name to the same chain as another entry will overwrite that entry.
+To deploy a file, add a file to `file-system/files/` to proceed. The tool uses the name of the file to name the chunks that are deployed on-chain (these names are emitted in events, and are of the format `sample-1`, `sample-2`, etc.) and to name the deployment file that will be generated in `file-system/deployments/`. For example, deploying `sample.js` will create or update `file-system/deployments/sample.js.json`. Every file in `file-system/deployments` stores file storage addresses by chain, so that you can deploy the same file to multiple chains without overwriting anything. However, deploying a file by the same name to the same chain as another entry will overwrite that entry.
 
 You will be able to use the generated deployment file immediately after deployment to add a given file to your contract's file system. 
 
@@ -193,3 +195,9 @@ Example: yarn remove-file --name p5.min.js --network ethereum --contract 0xc279f
 *TBD*
 
 This section will contain the addresses of approved files on each chain, eg. p5.min.js.
+
+___
+
+## Disclaimer
+
+The Highlight File System client and related information is offered on an as-is basis. Sea Ranch Labs, Inc., dba Highlight, gives no warranties regarding its use and disclaims all liability for damages resulting from its use to the fullest extent possible. Usage is fully governed by Highlight’s [terms of service](https://highlight.xyz/terms-of-service) and [privacy policy](https://highlight.xyz/privacy-policy), available at the links provided. Please remember that blockchain transactions are immutable, and only proceed if you have requisite technical understanding.
