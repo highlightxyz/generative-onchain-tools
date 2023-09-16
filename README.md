@@ -75,7 +75,7 @@ This repository has tools to add and remove files from a file system. To read a 
 
 ## Usage
 
-There are 4 functions supported here: 
+There are 4 commands supported by the CLI: 
 
 - Deploying a file
 - Checking the cost to deploy a file
