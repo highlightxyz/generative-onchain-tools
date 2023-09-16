@@ -1,3 +1,5 @@
+# Generative Onchain Tools
+
 Generative art collections on Highlight are sets of NFTs that are rendered by an artist's code at the time they're minted. 
 
 - [How to make generative art on Highlight](https://github.com/highlightxyz/generative-art/tree/main)
