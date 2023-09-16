@@ -102,6 +102,7 @@ const deploy = async (fileName, network, accountName) => {
             chunkFileNames: uploadChunk.uploadChunkPaths.map((uploadChunkPath) => { return uploadChunkPath.split("/").pop() })
         })
         console.log("");
+        await new Promise(r => setTimeout(r, 1000));
     }
 
     const addressesChunked = await Promise.all(txHashes.map(async (txHash) => {
