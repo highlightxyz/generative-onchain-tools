@@ -12,7 +12,7 @@ Writing a new file on-chain consists of two major steps: deploying the file, and
 
 ---
 
-***Supported networks***
+**Supported networks**
 
 All 12 networks that are supported on [Highlight](https://highlight.xyz/) are supported here. They are:
 
@@ -82,7 +82,7 @@ There are 4 functions supported here:
 
 ---
 
-***Config***
+### Config
 
 The config is made up of:
 
@@ -94,7 +94,7 @@ The config is made up of:
 
 ---
 
-***Setup***
+### Setup
 
 After cloning the repository, make sure you have yarn installed. [Installing yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable). Then, follow these steps:
 
@@ -116,7 +116,7 @@ The following commands are all meant to be run in the root of this repository.
 
 ---
 
-***Check a file's deploy cost***
+### Check a file's deploy cost
 
 Before deploying a file, you can check how much it will cost to deploy a file. The cost is calculated using the network's current gas fee. Add a file to `file-system/files/` to proceed. 
 
@@ -132,7 +132,7 @@ If legacy is set to false, the cost estimator will use the `maxFeePerGas` value 
 
 ---
 
-***Deploy a file***
+### Deploy a file
 
 To deploy a file, add a file to `file-system/files/` to proceed. The tool uses the name of the file to name the chunks that are deployed on-chain (these names are emitted in events, and are of the format `sample-1`, `sample-2`, etc.) and to name the deployment file that will be generated in `file-system/deployments/`.For example, deploying `sample.js` will create or update `file-system/deployments/sample.js.json`. Every file in `file-system/deployments` stores file storage addresses by chain, so that you can deploy the same file to multiple chains without overwriting anything. However, deploying a file by the same name to the same chain as another entry will overwrite that entry.
 
@@ -140,7 +140,7 @@ You will be able to use the generated deployment file immediately after deployme
 
 Files that are larger than 20kb will be automatically split up into chunks of 20kb. These chunks will be stored in a "split" folder, named in the format `{fileName}-split` in the `file-system/files` folder (the same folder). If you run the deploy command with a file that already has a split folder, the tool will re-use the existing chunks in the split folder.
 
-Therefore, **if you modify any files larger than 20kb and wish to re-deploy them**, (meaning they have an existing split folder that was previously deployed), make sure to **delete the split folder corresponding to the file.**
+Therefore, ***if you modify any files larger than 20kb and wish to re-deploy them***, (meaning they have an existing split folder that was previously deployed), make sure to ***delete the split folder corresponding to the file.***
 
 ```
 Format: yarn deploy --name <file name> --network <network name> --account <optional>
@@ -152,7 +152,7 @@ Example: yarn deploy --name p5.min.js --network ethereum
 
 ---
 
-***Add a file***
+### Add a file
 
 Files that have an entry in a deployment file (in `file-system/deployments`) are eligible to be added to a file system via the CLI. You can seamlessly move on from deploying a file to this step, or manually paste in the storage addresses for a file that you know is already deployed to a chain.
 
@@ -168,7 +168,7 @@ Example: yarn add-file --name p5.min.js --network ethereum --contract 0xc279f14a
 
 ---
 
-***Remove a file***
+### Remove a file
 
 You must be the owner of the contract hosting the file system you're removing a file from. The file name must already exist on the file system.
 
