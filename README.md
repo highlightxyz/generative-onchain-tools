@@ -4,7 +4,8 @@ Generative art collections on Highlight are sets of NFTs that are rendered by an
 
 - [How to make generative art on Highlight](https://github.com/highlightxyz/generative-art/tree/main)
 
-CLIs
+**CLIs**
+
 - [Generative Series File System](#generative-series-file-system)
 - [Token Metadata Downloader](#token-metadata-downloader)
 
