@@ -1,0 +1,50 @@
+{
+    "ethereum": {
+        "rpc": "https://ethereum.publicnode.com",
+        "chainId": 1
+    },
+    "goerli": {
+        "rpc": "https://ethereum-goerli.publicnode.com",
+        "chainId": 5
+    },
+    "polygon": {
+        "rpc": "https://polygon-rpc.com",
+        "chainId": 137
+    },
+    "mumbai": {
+        "rpc": "https://rpc-mumbai.maticvigil.com",
+        "chainId": 80001
+    },
+    "arbitrum": {
+        "rpc": "https://arb1.arbitrum.io/rpc",
+        "chainId": 42161
+    },
+    "arbitrum-goerli": {
+        "rpc": "https://goerli-rollup.arbitrum.io/rpc",
+        "chainId": 421613
+    },
+    "optimism": {
+        "rpc": "https://mainnet.optimism.io",
+        "chainId": 10
+    },
+    "optimism-goerli": {
+        "rpc": "https://goerli.optimism.io",
+        "chainId": 420
+    },
+    "base": {
+        "rpc": "https://mainnet.base.org",
+        "chainId": 8453
+    },
+    "base-goerli": {
+        "rpc": "https://goerli.base.org",
+        "chainId": 84531
+    },
+    "zora": {
+        "rpc": "https://rpc.zora.energy",
+        "chainId": 7777777
+    },
+    "zora-goerli": {
+        "rpc": "https://testnet.rpc.zora.energy",
+        "chainId": 999
+    }
+}

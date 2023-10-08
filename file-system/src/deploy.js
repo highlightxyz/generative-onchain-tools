@@ -3,7 +3,7 @@
  * @version: 0.1.0
  * @description Deploys a file on-chain
     * @argument file File name in file-system/files
-    * @argument network Network name, as available in file-system/config.json
+    * @argument network Network name, as available in chains.json
     * @argument account (optional) Account name if different from 'default', as available in file-system/config.json
  */
 
@@ -14,19 +14,20 @@ const splitFile = require('split-file');
 const commandLineArgs = require('command-line-args');
 
 const config = require("../config.json");
+const rpcConfig = require("../../chains.json");
 const FileDeployerABI = require("../abi/FileDeployer.json").abi;
 const { chunkArrayInGroups } = require("./utils.js");
 const { FILE_NAME_FORMAT, MAX_FILE_CHUNK_SIZE_BYTES, MAX_CHUNKS_IN_TX } = require("./constants.js");
 
 const deploy = async (fileName, network, accountName) => {
     if (network === "mainnet") network = "ethereum";
-    if (!(network in config.addresses) || !(network in config.rpc)) throw new Error("Unsupported network");
+    if (!(network in config.addresses) || !(network in rpcConfig)) throw new Error("Unsupported network");
     if (!fileName.match(FILE_NAME_FORMAT)) throw new Error("Unsupported file name format");
     if (!(accountName in config.accounts)) throw new Error("Unsupported account");
     const filePath = resolve(__dirname, `../files/${fileName}`);
     if (!fs.existsSync(filePath)) throw new Error("File doesn't exist in file-system/files/");
 
-    const provider = ethers.getDefaultProvider(config.rpc[network]);
+    const provider = ethers.getDefaultProvider(rpcConfig[network].rpc);
     let signer;
     try {
         signer = new ethers.Wallet(config.accounts[accountName], provider);
@@ -38,7 +39,7 @@ const deploy = async (fileName, network, accountName) => {
         console.log(`Signer balance: ${ethers.formatEther(await signer.provider.getBalance(signer.address))}\n`);
     } catch (error) {
         console.error(error);
-        throw new Error(`Failed to connect to ${network} using rpc ${config.rpc[network]}`);
+        throw new Error(`Failed to connect to ${network} using rpc ${rpcConfig[network].rpc}`);
     }
 
     let split = false;

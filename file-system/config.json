@@ -13,20 +13,6 @@
         "zora": "0xB627f0469683f68aC78E1deD4eFA8545aa4c4DE3",
         "zora-goerli": "0xAFfC7C9BfB48FFD2a580e1a0d36f8cc7D45Dcb58"
     },
-    "rpc": {
-        "ethereum": "https://ethereum.publicnode.com",
-        "goerli": "https://ethereum-goerli.publicnode.com",
-        "polygon": "https://polygon-rpc.com",
-        "mumbai": "https://rpc-mumbai.maticvigil.com",
-        "arbitrum": "https://arb1.arbitrum.io/rpc",
-        "arbitrum-goerli": "https://goerli-rollup.arbitrum.io/rpc",
-        "optimism": "https://mainnet.optimism.io",
-        "optimism-goerli": "https://goerli.optimism.io",
-        "base": "https://mainnet.base.org",
-        "base-goerli": "https://goerli.base.org",
-        "zora": "https://rpc.zora.energy",
-        "zora-goerli": "https://testnet.rpc.zora.energy"
-    },
     "accounts": {
         "default": ""
     }

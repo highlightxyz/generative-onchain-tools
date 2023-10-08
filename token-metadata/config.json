@@ -1,0 +1,14 @@
+{
+    "ethereum": "https://ethereum.publicnode.com",
+    "goerli": "https://ethereum-goerli.publicnode.com",
+    "polygon": "https://polygon-rpc.com",
+    "mumbai": "https://rpc-mumbai.maticvigil.com",
+    "arbitrum": "https://arb1.arbitrum.io/rpc",
+    "arbitrum-goerli": "https://goerli-rollup.arbitrum.io/rpc",
+    "optimism": "https://mainnet.optimism.io",
+    "optimism-goerli": "https://goerli.optimism.io",
+    "base": "https://mainnet.base.org",
+    "base-goerli": "https://goerli.base.org",
+    "zora": "https://rpc.zora.energy",
+    "zora-goerli": "https://testnet.rpc.zora.energy"
+}

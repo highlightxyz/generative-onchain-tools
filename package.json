@@ -10,12 +10,17 @@
     "deploy": "node file-system/src/deploy.js",
     "cost": "node file-system/src/checkCost.js",
     "add-file": "node file-system/src/addFile.js",
-    "remove-file": "node file-system/src/removeFile.js"
+    "remove-file": "node file-system/src/removeFile.js",
+    "download:collection:metadatas": "node token-metadata/src/download/token-metadatas.js",
+    "download:collection:previews": "node token-metadata/src/download/token-previews.js"
   },
   "dependencies": {
+    "axios": "^1.5.1",
     "bluebird": "^3.7.2",
     "command-line-args": "^5.2.1",
+    "csv-parse": "^5.5.1",
     "ethers": "^6.7.1",
+    "mime-types": "^2.1.35",
     "split-file": "^2.3.0"
   }
 }
