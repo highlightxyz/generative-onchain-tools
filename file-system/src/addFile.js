@@ -28,7 +28,7 @@ const addFile = async (fileName, network, contractAddress, accountName) => {
     const deployments = JSON.parse(await fs.promises.readFile(deploymentsPath, "utf-8"));
     if (!(network in deployments)) throw new Error(`File not deployed to ${network}`);
 
-    const provider = ethers.getDefaultProvider(rpcConfig[network].rpc.rpc);
+    const provider = ethers.getDefaultProvider(rpcConfig[network].rpc);
     let signer;
     try {
         signer = new ethers.Wallet(config.accounts[accountName], provider);
@@ -40,7 +40,7 @@ const addFile = async (fileName, network, contractAddress, accountName) => {
         console.log(`Signer balance: ${ethers.formatEther(await signer.provider.getBalance(signer.address))}\n`);
     } catch (error) {
         console.error(error);
-        throw new Error(`Failed to connect to ${network} using rpc ${rpcConfig[network].rpc.rpc}`);
+        throw new Error(`Failed to connect to ${network} using rpc ${rpcConfig[network].rpc}`);
     }
     
     const contract = new ethers.Contract(contractAddress, GenSeriesABI, signer);
