@@ -23,7 +23,6 @@ const addFile = async (fileName, network, contractAddress, accountName) => {
     if (!(accountName in config.accounts)) throw new Error("Unsupported account");
     const filePath = resolve(__dirname, `../files/${fileName}`);
     const deploymentsPath = resolve(__dirname, `../deployments/${fileName}.json`);
-    if (!fs.existsSync(filePath)) throw new Error("File doesn't exist in file-system/files/");
     if (!fs.existsSync(deploymentsPath)) throw new Error("Deployments file doesn't exist in file-system/deployments/");
     const deployments = JSON.parse(await fs.promises.readFile(deploymentsPath, "utf-8"));
     if (!(network in deployments)) throw new Error(`File not deployed to ${network}`);
