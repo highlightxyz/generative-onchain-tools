@@ -4,7 +4,7 @@
  * @description Deploys a file on-chain
     * @argument file File name in file-system/files
     * @argument network Network name, as available in chains.json
-    * @argument account (optional) Account name if different from 'default', as available in file-system/config.json
+    * @argument account (optional) Account name if different from 'default', as available in env
  */
 
 const fs = require("fs");
@@ -86,7 +86,7 @@ const deploy = async (fileName, network, accountName) => {
         return { names, fileContents, txIndex: index + 1, uploadChunkPaths }
     }))
 
-    const fileDeployer = new ethers.Contract(config.addresses[network], FileDeployerABI, signer);
+    const fileDeployer = new ethers.Contract(config.addresses[network].fileDeployer, FileDeployerABI, signer);
     const txHashes = [];
     console.log("Submitting transactions...\n")
     for (const uploadChunk of uploadChunks) {
