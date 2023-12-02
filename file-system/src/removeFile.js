@@ -5,7 +5,7 @@
     * @argument name File name in file-system/files
     * @argument network Network name, as available in chains.json
     * @argument contract Address of collection to add file to
-    * @argument account (optional) Account name if different from 'default', as available in file-system/config.json
+    * @argument account (optional) Account name if different from 'default', as available in env
  */
 
 const commandLineArgs = require('command-line-args');
