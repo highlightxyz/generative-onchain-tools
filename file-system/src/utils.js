@@ -1,6 +1,8 @@
 const { ENV_ACCOUNT_PREFIX } = require("./constants");
 const { ethers } = require('ethers');
 
+require("dotenv").config();
+
 const chunkArrayInGroups = (arr, size) => {
     const resArr = [];
   

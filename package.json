@@ -21,6 +21,7 @@
     "bluebird": "^3.7.2",
     "command-line-args": "^5.2.1",
     "csv-parse": "^5.5.1",
+    "dotenv": "^16.3.1",
     "ethers": "^6.7.1",
     "mime-types": "^2.1.35",
     "split-file": "^2.3.0"

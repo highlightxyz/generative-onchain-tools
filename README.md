@@ -115,9 +115,9 @@ After cloning the repository, make sure you have yarn installed. [Installing yar
 
 1. Run `yarn install`
 2. Run `yarn env:refresh` (or `yarn env:refresh:legacy` if your npm version < 5.2.0)
-2. Add a private key as the value of the `HL_FS_KEY_DEFAULT` key in `.env`
+2. Add a private key as the value of the `HL_FS_PK_DEFAULT` key in `.env`
 
-The file system will take any `--account` arguments and capitalize them, then prepend `HL_FS_KEY_` when looking for any accounts in your environment.
+The file system will take any `--account` arguments and capitalize them, then prepend `HL_FS_PK_` when looking for any accounts in your environment.
 
 Common arguments in the following commands:
 
