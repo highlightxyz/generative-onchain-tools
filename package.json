@@ -12,7 +12,9 @@
     "add-file": "node file-system/src/addFile.js",
     "remove-file": "node file-system/src/removeFile.js",
     "download:collection:metadatas": "node token-metadata/src/download/token-metadatas.js",
-    "download:collection:previews": "node token-metadata/src/download/token-previews.js"
+    "download:collection:previews": "node token-metadata/src/download/token-previews.js",
+    "env:refresh": "npx ncp .sample.env .env",
+    "env:refresh:legacy": "./node_modules/.bin/ncp .sample.env .env"
   },
   "dependencies": {
     "axios": "^1.5.1",
@@ -22,5 +24,8 @@
     "ethers": "^6.7.1",
     "mime-types": "^2.1.35",
     "split-file": "^2.3.0"
+  },
+  "devDependencies": {
+    "ncp": "2.0.0"
   }
 }

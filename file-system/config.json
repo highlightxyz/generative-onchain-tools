@@ -13,7 +13,9 @@
         "zora": "0xB627f0469683f68aC78E1deD4eFA8545aa4c4DE3",
         "zora-goerli": "0xAFfC7C9BfB48FFD2a580e1a0d36f8cc7D45Dcb58"
     },
-    "accounts": {
-        "default": ""
-    }
+    "__accountsInstructions": [
+        "Add the private key to your env, named as `HL_FS_KEY_<account name>`",
+        "Eg. HL_FS_KEY_DEFAULT=<your private key>",
+        "Use fully capitalized account names as convention, the file system will auto capitalize your account name"
+    ]
 }

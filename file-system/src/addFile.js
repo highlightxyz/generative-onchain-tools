@@ -13,27 +13,21 @@ const resolve = require("path").resolve;
 const commandLineArgs = require('command-line-args');
 const ethers = require("ethers");
 
-const config = require("../config.json");
 const rpcConfig = require("../../chains.json");
 const GenSeriesABI = require("../abi/ERC721GenerativeOnchain.json").abi;
+
+const { getAccountOrThrow } = require("./utils");
 
 const addFile = async (fileName, network, contractAddress, accountName) => {
     if (network === "mainnet") network = "ethereum";
     if (!(network in rpcConfig)) throw new Error("Unsupported network");
-    if (!(accountName in config.accounts)) throw new Error("Unsupported account");
-    const filePath = resolve(__dirname, `../files/${fileName}`);
     const deploymentsPath = resolve(__dirname, `../deployments/${fileName}.json`);
     if (!fs.existsSync(deploymentsPath)) throw new Error("Deployments file doesn't exist in file-system/deployments/");
     const deployments = JSON.parse(await fs.promises.readFile(deploymentsPath, "utf-8"));
     if (!(network in deployments)) throw new Error(`File not deployed to ${network}`);
 
     const provider = ethers.getDefaultProvider(rpcConfig[network].rpc);
-    let signer;
-    try {
-        signer = new ethers.Wallet(config.accounts[accountName], provider);
-    } catch(error) {
-        throw new Error("Could not instantiate wallet from private key");
-    }
+    const signer = getAccountOrThrow(accountName).connect(provider);
 
     try {
         console.log(`Signer balance: ${ethers.formatEther(await signer.provider.getBalance(signer.address))}\n`);

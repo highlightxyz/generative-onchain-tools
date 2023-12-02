@@ -114,7 +114,10 @@ The config is made up of:
 After cloning the repository, make sure you have yarn installed. [Installing yarn](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable). Then, follow these steps:
 
 1. Run `yarn install`
-2. Add a private key to the `default` account in `file-system/config.json`
+2. Run `yarn env:refresh` (or `yarn env:refresh:legacy` if your npm version < 5.2.0)
+2. Add a private key as the value of the `HL_FS_KEY_DEFAULT` key in `.env`
+
+The file system will take any `--account` arguments and capitalize them, then prepend `HL_FS_KEY_` when looking for any accounts in your environment.
 
 Common arguments in the following commands:
 
@@ -122,7 +125,7 @@ Common arguments in the following commands:
 | ------------ | -------------------------------------------------- | --------------- |
 | `--name`     | Name of file in `file-system/files/`               | p5.min.js       | 
 | `--network`  | Network name, choices in `file-system/config.json` | arbitrum-goerli |
-| `--account`  | Account name, from `file-system/config.json`       | default         |
+| `--account`  | Account name, from your environment                | default         |
 | `--contract` | Your generative series contract address            | 0x...           |
 
 `--account` is always optional as it defaults to `default`. 

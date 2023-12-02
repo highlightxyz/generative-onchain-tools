@@ -16,24 +16,19 @@ const commandLineArgs = require('command-line-args');
 const config = require("../config.json");
 const rpcConfig = require("../../chains.json");
 const FileDeployerABI = require("../abi/FileDeployer.json").abi;
-const { chunkArrayInGroups } = require("./utils.js");
+
+const { chunkArrayInGroups, getAccountOrThrow } = require("./utils.js");
 const { FILE_NAME_FORMAT, MAX_FILE_CHUNK_SIZE_BYTES, MAX_CHUNKS_IN_TX } = require("./constants.js");
 
 const deploy = async (fileName, network, accountName) => {
     if (network === "mainnet") network = "ethereum";
     if (!(network in config.addresses) || !(network in rpcConfig)) throw new Error("Unsupported network");
     if (!fileName.match(FILE_NAME_FORMAT)) throw new Error("Unsupported file name format");
-    if (!(accountName in config.accounts)) throw new Error("Unsupported account");
     const filePath = resolve(__dirname, `../files/${fileName}`);
     if (!fs.existsSync(filePath)) throw new Error("File doesn't exist in file-system/files/");
 
     const provider = ethers.getDefaultProvider(rpcConfig[network].rpc);
-    let signer;
-    try {
-        signer = new ethers.Wallet(config.accounts[accountName], provider);
-    } catch(error) {
-        throw new Error("Could not instantiate wallet from private key");
-    }
+    const signer = getAccountOrThrow(accountName).connect(provider);
 
     try {
         console.log(`Signer balance: ${ethers.formatEther(await signer.provider.getBalance(signer.address))}\n`);
