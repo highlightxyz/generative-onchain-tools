@@ -12,20 +12,28 @@ const resolve = require("path").resolve;
 const ethers = require("ethers");
 const splitFile = require('split-file');
 const commandLineArgs = require('command-line-args');
+const { lookup } = require("mime-types");
 
 const config = require("../config.json");
 const rpcConfig = require("../../chains.json");
 const FileDeployerABI = require("../abi/FileDeployer.json").abi;
 
 const { chunkArrayInGroups, getAccountOrThrow } = require("./utils.js");
-const { FILE_NAME_FORMAT, MAX_FILE_CHUNK_SIZE_BYTES, MAX_CHUNKS_IN_TX } = require("./constants.js");
+const { FILE_NAME_FORMAT, MAX_FILE_CHUNK_SIZE_BYTES, MAX_CHUNKS_IN_TX, UTF_BASED_FILE_EXTENSIONS } = require("./constants.js");
 
 const deploy = async (fileName, network, accountName) => {
     if (network === "mainnet") network = "ethereum";
     if (!(network in config.addresses) || !(network in rpcConfig)) throw new Error("Unsupported network");
     if (!fileName.match(FILE_NAME_FORMAT)) throw new Error("Unsupported file name format");
-    const filePath = resolve(__dirname, `../files/${fileName}`);
+    let filePath = resolve(__dirname, `../files/${fileName}`);
     if (!fs.existsSync(filePath)) throw new Error("File doesn't exist in file-system/files/");
+
+    const fileNameSplit = fileName.split(".");
+    const fileExtension = fileNameSplit[fileNameSplit.length - 1];
+    const needsBase64Encoding = !UTF_BASED_FILE_EXTENSIONS.includes(fileExtension);
+
+    const base64FileName = `${fileNameSplit.slice(0, fileNameSplit.length - 1).join(".")}-base64.${fileExtension}`;
+    const base64FilePath = resolve(__dirname, `../files/${base64FileName}`);
 
     const provider = ethers.getDefaultProvider(rpcConfig[network].rpc);
     const signer = getAccountOrThrow(accountName).connect(provider);
@@ -35,6 +43,16 @@ const deploy = async (fileName, network, accountName) => {
     } catch (error) {
         console.error(error);
         throw new Error(`Failed to connect to ${network} using rpc ${rpcConfig[network].rpc}`);
+    }
+
+    if (needsBase64Encoding) {
+        console.log(`Needs base64 encoding, writing base64 encoded file to ${base64FileName}`)
+        const fileData = await fs.promises.readFile(filePath);
+        const base64EncodedFileData = fileData.toString("base64");
+        const dataUri = `data:${lookup(fileExtension)};base64,${base64EncodedFileData}`
+        await fs.promises.writeFile(base64FilePath, dataUri);
+        filePath = base64FilePath;
+        console.log(`Wrote base64 encoded version of file to ${base64FilePath}`);
     }
 
     let split = false;
