@@ -206,7 +206,7 @@ Highlight has deployed some commonly used libraries accross our multi-chain syst
 
 Additionally, the HL FileSystem is compatible with historically relevant file systems on Ethereum, such as Mathcastles and ETHFS. Some libaries deployed via these file systems on Ethereum mainnet (chainId: 1) are also present in the list below.
 
-On some chains, such as OP-stack based L2s (Optimism, Base, Zora), it is critical to gzip large libraries to inable in-chain render use-cases, since the L2 places a limit on the amount of data that can be returned by a view function.
+On some chains, such as OP-stack based L2s (Optimism, Base, Zora), it is critical to gzip large libraries to enable in-chain render use-cases, since the L2 places a limit on the amount of data that can be returned by a view function.
 
 | Chain    | File                          | Deployments File (containing file addresses)                                                                                                                             | Deployer                                                                                                 |
 |----------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
