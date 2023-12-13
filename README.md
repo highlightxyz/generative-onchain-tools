@@ -200,11 +200,21 @@ Example: yarn remove-file --name p5.min.js --network ethereum --contract 0xc279f
 
 ---
 
-## Approved Files
+## Deployed Libraries
 
-*TBD*
+Highlight has deployed some commonly used libraries accross our multi-chain system so that creators can easily add existing libaries to their file system without having to deploy them.
 
-This section will contain the addresses of approved files on each chain, eg. p5.min.js.
+Additionally, the HL FileSystem is compatible with historically relevant file systems on Ethereum, such as Mathcastles and ETHFS. Some libaries deployed via these file systems on Ethereum mainnet (chainId: 1) are also present in the list below.
+
+On some chains, such as OP-stack based L2s (Optimism, Base, Zora), it is critical to gzip large libraries to inable in-chain render use-cases, since the L2 places a limit on the amount of data that can be returned by a view function.
+
+| Chain    | File                          | Deployments File (containing file addresses)                                                                                                                             | Deployer                                                                                                 |
+|----------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
+| Ethereum | p5.min.js (1.4.2)             | [p5-v1.4.2.js.json](https://github.com/highlightxyz/generative-onchain-tools/blob/5d6d8ce20ae653682e867984c7acd3d30c7100eb/file-system/deployments/p5-v1.4.2.js.json#L2) | [Mathcastles](https://etherscan.io/address/0x16cc845d144a283d1b0687fbac8b0601cc47a6c3#readProxyContract) |
+| Ethereum | three.min.js (0.144.0)        | [three-v0.144.0.js.json](https://github.com/highlightxyz/generative-onchain-tools/blob/main/file-system/deployments/three-v0.144.0.js.json#L2)                           | [Mathcastles](https://etherscan.io/address/0x16cc845d144a283d1b0687fbac8b0601cc47a6c3#readProxyContract) |
+| Base     | p5.min.js (1.6.0)             | [p5-v1.6.0.js.json](https://github.com/highlightxyz/generative-onchain-tools/blob/main/file-system/deployments/p5-v1.6.0.js.json#L2)                                     | Highlight                                                                                                |
+| Optimism | p5.min.js (1.6.0) _[gzipped]_ | [p5-v1.6.0.js.gz.json](https://github.com/highlightxyz/generative-onchain-tools/blob/main/file-system/deployments/p5-v1.6.0.min.js.gz.json#L2)                           | Highlight                                                                                                |
+| Zora     | p5.min.js (1.6.0) _[gzipped]_ | [p5-v1.6.0.js.gz.json](https://github.com/highlightxyz/generative-onchain-tools/blob/main/file-system/deployments/p5-v1.6.0.min.js.gz.json#L19)                          | Highlight                                                                                                |
 
 ___
 
