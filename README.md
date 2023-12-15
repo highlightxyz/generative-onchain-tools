@@ -206,8 +206,6 @@ Highlight has deployed some commonly used libraries accross our multi-chain syst
 
 Additionally, the HL FileSystem is compatible with historically relevant file systems on Ethereum, such as Mathcastles and ETHFS. Some libaries deployed via these file systems on Ethereum mainnet (chainId: 1) are also present in the list below.
 
-On some chains, such as OP-stack based L2s (Optimism, Base, Zora), it is critical to gzip large libraries to enable in-chain render use-cases, since the L2 places a limit on the amount of data that can be returned by a view function.
-
 | Chain    | File                          | Deployments File (containing file addresses)                                                                                                                             | Deployer                                                                                                 |
 |----------|-------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | Ethereum | p5.min.js (1.4.2)             | [p5-v1.4.2.js.json](https://github.com/highlightxyz/generative-onchain-tools/blob/5d6d8ce20ae653682e867984c7acd3d30c7100eb/file-system/deployments/p5-v1.4.2.js.json#L2) | [Mathcastles](https://etherscan.io/address/0x16cc845d144a283d1b0687fbac8b0601cc47a6c3#readProxyContract) |
