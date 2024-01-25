@@ -10,7 +10,7 @@
 
 The Highlight File System client is a CLI tool to upload generative art projects onchain, and manage your onchain file systems. Each Generative Series contract hosts its own FileSystem to enable flexibility. 
 
-Writing a new file onchain consists of two major steps: deploying the file, and adding it to a contract's file system. Since this process is modular, creators can easily add files that are already deployed to a given chain to their contract's file system, without having to deploy a new copy themselves. For example, Highlight has already deployed the minified version of [p5.js 1.6.0](https://github.com/processing/p5.js/releases/tag/v1.6.0) to Base's Mainnet and its Goerli testnet. The tools in this repository make both steps extremely easy, and are easy to customize.
+Writing a new file onchain consists of two major steps: deploying the file, and adding it to a contract's file system. Since this process is modular, creators can easily add files that are already deployed to a given chain to their contract's file system, without having to deploy a new copy themselves. For example, Highlight has already deployed the minified version of [p5.js 1.6.0](https://github.com/processing/p5.js/releases/tag/v1.6.0) to Base, Optimism, and Zora. The tools in this repository make both steps extremely easy, and are easy to customize.
 
 ## File deployment
 
