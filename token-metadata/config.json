@@ -10,5 +10,7 @@
     "base": "https://mainnet.base.org",
     "base-goerli": "https://goerli.base.org",
     "zora": "https://rpc.zora.energy",
-    "zora-goerli": "https://testnet.rpc.zora.energy"
+    "zora-goerli": "https://testnet.rpc.zora.energy",
+    "sepolia": "https://ethereum-sepolia.publicnode.com",
+    "base-sepolia": "https://sepolia.base.org"
 }

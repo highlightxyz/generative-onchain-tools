@@ -65,6 +65,17 @@
         "isOPBasedL2": true,
         "fileDeployer": "0xAFfC7C9BfB48FFD2a580e1a0d36f8cc7D45Dcb58",
         "opL1Block": "0x4200000000000000000000000000000000000015"
+      },
+      "sepolia": {
+        "networkType": "testnet",
+        "isOPBasedL2": false,
+        "fileDeployer": "0x9c602CE508E41ccAF2cF997D93A9FbE0166D8aE6"
+      },
+      "base-sepolia": {
+        "networkType": "testnet",
+        "isOPBasedL2": true,
+        "fileDeployer": "0x8c23711a0536397C261Bf83Ec474B9aAf05C549B",
+        "opL1Block": "0x4200000000000000000000000000000000000015"
       }
     },
     "__accountsInstructions": [
