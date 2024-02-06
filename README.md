@@ -247,7 +247,7 @@ Example: yarn download:collection:metadatas --address 0xc111b1033DC8f32d85c152D7
 
 ### Download token previews/images
 
-This command lets you download all images of all tokens (ie. token previews for generative art collections) into a single folder. If you've already run "Download token metadatas" for this collection, it is advised to pass the path to the csv file (from the root of this repository) to the `metadata` argument (to not re-compute token metadata) to save time. If your collection is really big, you can easily stop and start this process by re-running the command with `--skip true`, which will let you start where you left off. 
+This command lets you download all images of all tokens (ie. token previews for generative art collections) into a single folder. If you've already run "Download token metadatas" for this collection, it is advised to pass the path to the csv file (from the root of this repository) to the `metadata` argument (to not re-compute token metadata) to save time. If your collection is really big, you can easily stop and start this process by re-running the command with `--skip`, which will let you start where you left off. 
 
 Arguments: 
 - `address` Collection contract address
