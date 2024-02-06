@@ -46,5 +46,13 @@
     "zora-goerli": {
         "rpc": "https://testnet.rpc.zora.energy",
         "chainId": 999
+    },
+    "sepolia": {
+        "rpc": "https://ethereum-sepolia.publicnode.com",
+        "chainId": 11155111
+    },
+    "base-sepolia": {
+        "rpc": "https://sepolia.base.org",
+        "chainId": 84532
     }
 }
