@@ -34,37 +34,43 @@
         "networkType": "mainnet",
         "isOPBasedL2": true,
         "fileDeployer": "0x21c3a69EaD9b81863B83757ff2645803fF7c7690",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 730
       },
       "optimism-goerli": {
         "networkType": "testnet",
         "isOPBasedL2": true,
         "fileDeployer": "0x20475183625aE0eD5Dcd2553a660B06FF52af8Bd",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 730
       },
       "base": {
         "networkType": "mainnet",
         "isOPBasedL2": true,
         "fileDeployer": "0x799d1CC242637847756f0400d1F83FCF94Cb051e",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 908
       },
       "base-goerli": {
         "networkType": "testnet",
         "isOPBasedL2": true,
         "fileDeployer": "0xB644D70A52b4e555815EF3Ec76488dbdA9DF972D",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 908
       },
       "zora": {
         "networkType": "mainnet",
         "isOPBasedL2": true,
         "fileDeployer": "0xB627f0469683f68aC78E1deD4eFA8545aa4c4DE3",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 800
       },
       "zora-goerli": {
         "networkType": "testnet",
         "isOPBasedL2": true,
         "fileDeployer": "0xAFfC7C9BfB48FFD2a580e1a0d36f8cc7D45Dcb58",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 800
       },
       "sepolia": {
         "networkType": "testnet",
@@ -75,7 +81,8 @@
         "networkType": "testnet",
         "isOPBasedL2": true,
         "fileDeployer": "0x8c23711a0536397C261Bf83Ec474B9aAf05C549B",
-        "opL1Block": "0x4200000000000000000000000000000000000015"
+        "opL1Block": "0x4200000000000000000000000000000000000015",
+        "postDencunFeeDivider": 908
       }
     },
     "__accountsInstructions": [
