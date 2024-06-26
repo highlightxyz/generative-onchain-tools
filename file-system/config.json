@@ -83,6 +83,11 @@
         "fileDeployer": "0x8c23711a0536397C261Bf83Ec474B9aAf05C549B",
         "opL1Block": "0x4200000000000000000000000000000000000015",
         "postDencunFeeDivider": 908
+      },
+      "forma": {
+        "networkType": "forma",
+        "isOPBasedL2": false,
+        "fileDeployer": "0xF6C67C7bb7018E4609d571023196A4682FdA6F2f"
       }
     },
     "__accountsInstructions": [
