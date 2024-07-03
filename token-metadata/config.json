@@ -13,5 +13,6 @@
     "zora-goerli": "https://testnet.rpc.zora.energy",
     "sepolia": "https://ethereum-sepolia.publicnode.com",
     "base-sepolia": "https://sepolia.base.org",
-    "forma": "https://rpc.forma.art"
+    "forma": "https://rpc.forma.art",
+    "mantle": "https://rpc.mantle.xyz"
 }
