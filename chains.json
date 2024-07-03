@@ -58,5 +58,9 @@
     "forma": {
         "rpc": "https://rpc.forma.art",
         "chainId": 984122
+    },
+    "mantle": {
+        "rpc": "https://rpc.mantle.xyz",
+        "chainId": 5000
     }
 }

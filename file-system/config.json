@@ -88,6 +88,11 @@
         "networkType": "forma",
         "isOPBasedL2": false,
         "fileDeployer": "0xF6C67C7bb7018E4609d571023196A4682FdA6F2f"
+      },
+      "mantle": {
+        "networkType": "mantle",
+        "isOPBasedL2": false,
+        "fileDeployer": "0xC5402e0BAF74c1042D72749cB8cA78c58dD93D6f"
       }
     },
     "__accountsInstructions": [
