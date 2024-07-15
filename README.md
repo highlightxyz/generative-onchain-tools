@@ -13,7 +13,7 @@ Generative art collections on Highlight are sets of NFTs that are rendered by an
 
 **Supported networks**
 
-All 14 networks that are supported on [Highlight](https://highlight.xyz/) are supported here. They are:
+All 15 networks that are supported on [Highlight](https://highlight.xyz/) are supported here. They are:
 
 | Chain    | Supported networks (chainId)     | CLI name (used in CLI args) |
 | -------- | -------------------------------- | -------------------------   |
@@ -25,6 +25,7 @@ All 14 networks that are supported on [Highlight](https://highlight.xyz/) are su
 | Zora     | Mainnet (7777777), Goerli (999)  | zora, zora-goerli           |
 | Forma    | Mainnet (984122)                 | forma                       |
 | Mantle   | Mainnet (5000)                   | mantle                      |
+| Scroll   | Mainnet (534352)                 | scroll                      |
 
 ---
 

@@ -93,6 +93,11 @@
         "networkType": "mantle",
         "isOPBasedL2": false,
         "fileDeployer": "0xC5402e0BAF74c1042D72749cB8cA78c58dD93D6f"
+      },
+      "scroll": {
+        "networkType": "scroll",
+        "isOPBasedL2": false,
+        "fileDeployer": "0xa1Cef877695E24DF6643f5B6B47Eb6fCeF214A38"
       }
     },
     "__accountsInstructions": [
