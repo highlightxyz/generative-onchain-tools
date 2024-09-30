@@ -66,5 +66,9 @@
     "scroll": {
         "rpc": "https://rpc.scroll.io",
         "chainId": 5000
+    },
+    "shape": {
+        "rpc": "https://mainnet.shape.network",
+        "chainId": 360
     }
 }
